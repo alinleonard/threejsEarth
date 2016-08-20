@@ -1,0 +1,39 @@
+body {
+ margin: 0;
+ background-color: #000;
+ }
+
+canvas {
+	background-color: #000;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+#stats { position: absolute; top:0; left: 0 }
+#stats #fps { background: transparent !important }
+#stats #fps #fpsText { color: #fff !important }
+#stats #fps #fpsGraph {/* display: none*/ }
+
+#progress {
+
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    color: #fff;
+     margin-top:130px;
+}
+
+#progress .info{
+      font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+   
+}

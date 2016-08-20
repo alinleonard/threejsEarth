@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>My first Three.js app</title>
+		<link rel="stylesheet" type="text/css" href="./css/main.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="progress">
+				<div class="info">Loading...</div>
+				<div class="info" id="info"></div>
+				<div class="info" id="total"></div>
+			</div>
+		</div>
+
+		
+		<script src="js/libs/Detector.js"></script>
+		<script src="js/libs/three.min.js"></script>
+		<script src="js/libs/stats.min.js"></script>
+		<script type="text/javascript" src="js/earth.js"></script>
+		
+		<script>
+
+			if ( ! Detector.webgl ) {
+				Detector.addGetWebGLMessage();
+				document.getElementById( 'container' ).innerHTML = "";
+			}
+
+			var container = document.getElementById( 'container' );
+
+			var earth = new BUSILA.Earth( container );
+
+			var progress = document.getElementById("progress");
+			var info = document.getElementById('info');
+			var total  = document.getElementById('total');
+			console.log(info);
+
+			earth.progressManager.onProgress = function(item, loaded, ammount){
+				info.innerHTML = item;
+				total.innerHTML = loaded + " / "+ ammount;
+			};
+			earth.progressManager.onLoad = function(){
+				progress.style.display = "none";
+			};
+			earth.animate();
+			
+		</script>
+	</body>
+</html>
